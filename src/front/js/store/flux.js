@@ -1,5 +1,6 @@
 import { planetStore, planetActions } from "./planetas.js";
 import { favoriteStore, favoriteActions } from "./favorites.js";
+import { peopleStore,peopleActions } from "./people.js";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -22,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       ...planetStore,
+      ...peopleStore,
       ...favoriteStore,
     },
     actions: {
@@ -58,6 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       ...planetActions(getStore, getActions, setStore),
       ...favoriteActions(getStore, getActions, setStore),
+      ...peopleActions(getStore, getActions, setStore),
     },
   };
 };
