@@ -1,7 +1,6 @@
 export const favoriteStore = {
   favorites: [
-    { id: 1, name: "Luke" },
-    { id: 2, name: "Carl" },
+    
   ], //la lista de planetas
   favorite: {}, //planeta en específico
 };

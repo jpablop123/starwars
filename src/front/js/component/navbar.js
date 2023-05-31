@@ -23,14 +23,15 @@ export const Navbar = () => {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               {store.favorites &&
-                store.favorites.length > 1 &&
+                store.favorites.length > 0 ?
                 store.favorites.map((item, index) => (
                   <li key={index}>
                     <a className="dropdown-item" href="#">
                       {item.name}
                     </a>
                   </li>
-                ))}
+                )):<li>No favorites
+                </li>}
             </ul>
           </div>
         </div>
