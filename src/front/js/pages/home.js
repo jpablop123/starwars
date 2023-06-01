@@ -10,6 +10,7 @@ export const Home = () => {
   return (
     <>
       <CardPlanet /> 
+      <br></br>
       <CardPeople/>
     </>
   );
