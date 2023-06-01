@@ -7,6 +7,7 @@ import "../../styles/home.css";
  export const CardPeople = () => {
   const { store, actions } = useContext(Context);
 
+
   const addFavorite = (uid, name) => {
     
     actions.addFavorite(uid, name);
@@ -17,6 +18,8 @@ import "../../styles/home.css";
     actions.removeFavorite(favoriteIndex);
   };
 
+
+console.log(store.people)
   return (
     <div className="container">
       <div className="d-flex flex-row flex-nowrap" style={{ overflowX: "scroll" }}>

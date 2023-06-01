@@ -9,12 +9,14 @@ export function peopleActions(getStore, getActions, setStore) {
         getPeoples: async () => {
             //console.log(BASE_URL)
             let resultado = await fetch(`${BASE_URL}people`)
+            console.log(resultado)
             if (resultado.ok) {
                 alert("Se trajo correctamente la lista de people")
                 let resultadoJSON = await resultado.json()
                 //console.log("resultadoJSON: ", resultadoJSON.results)
                 let store = getStore();
-                setStore({ ...store, people: resultadoJSON.results })
+                console.log(resultadoJSON)
+                setStore({  people: resultadoJSON.results })
                 return resultadoJSON
             } else {
                 alert("hubo un error en la petición de planetas")
