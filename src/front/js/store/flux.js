@@ -1,6 +1,7 @@
 import { planetStore, planetActions } from "./planetas.js";
 import { favoriteStore, favoriteActions } from "./favorites.js";
 import { peopleStore,peopleActions } from "./people.js";
+import { vehicleActions, vehicleStore } from "../vehicle.js";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -25,6 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ...planetStore,
       ...peopleStore,
       ...favoriteStore,
+      ...vehicleStore,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -50,6 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ...planetActions(getStore, getActions, setStore),
       ...favoriteActions(getStore, getActions, setStore),
       ...peopleActions(getStore, getActions, setStore),
+      ...vehicleActions(getStore, getActions, setStore),
     },
   };
 };

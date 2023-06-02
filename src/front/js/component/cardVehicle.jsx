@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
- export const CardPeople = () => {
+ export const CardVehicle = () => {
   const { store, actions } = useContext(Context);
 
 
@@ -19,17 +19,16 @@ import "../../styles/home.css";
   };
 
 
-console.log(store.people)
+
   return (
     <div className="container">
       <div className="d-flex flex-row flex-nowrap" style={{ overflowX: "scroll" }}>
-        {store.people.map((item, index) => {
+        {store.vehicle.map((item, index) => {
           return (
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
               <img
-                                                src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`}
-                                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg' }}
+                                                src={`https://starwars-visualguide.com/assets/img/vehicles/${item.uid}.jpg`}
                                                 className="card-img-top"
                                                 alt="..."
                                             />
@@ -45,7 +44,7 @@ console.log(store.people)
                   <li className="list-group-item">A third item</li>
                 </ul>
                 <div className="card-body">
-                  <Link to={`/people/${item.uid}`} className="card-link">
+                  <Link to={`/starships/${item.uid}`} className="card-link">
                     Ver Detalle
                   </Link>
                   <br></br>

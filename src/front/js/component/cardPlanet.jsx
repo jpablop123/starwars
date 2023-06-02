@@ -24,7 +24,12 @@ import "../../styles/home.css";
           return (
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
-                <img src="..." className="card-img-top" alt="..." />
+              <img
+                                                src={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`}
+                                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg' }}
+                                                className="card-img-top"
+                                                alt="..."
+                                            />
                 <div className="card-body">
                   <h5 className="card-title">{item.name}</h5>
                   <p className="card-text">
@@ -32,7 +37,7 @@ import "../../styles/home.css";
                   </p>
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">An item</li>
+                  <li className="list-group-item">Some quick example text to build on the card title and make up the bulk of the card's content.</li>
                   <li className="list-group-item">A second item</li>
                   <li className="list-group-item">A third item</li>
                 </ul>
@@ -40,8 +45,10 @@ import "../../styles/home.css";
                   <Link to={`/planet/${item.uid}`} className="card-link">
                     Ver Detalle
                   </Link>
+                  <br></br>
+                  <br></br>
                   <button type="button" onClick={() => addFavorite(index, item.name)}>
-                    Agregar a favoritos
+                  <i className="fas fa-thumbs-up"> like</i>
                   </button>
            
                   
