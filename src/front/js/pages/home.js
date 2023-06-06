@@ -7,6 +7,7 @@ import { CardPlanet } from "../component/cardPlanet.jsx";
 import { CardPeople } from "../component/cardPeople.jsx";
 import { CardVehicle } from "../component/cardVehicle.jsx";
 
+
 export const Home = () => {
   return (
     <>
@@ -18,6 +19,7 @@ export const Home = () => {
       <br></br>
       <h1 className="text-center">List of Vehicles</h1>
       <CardVehicle/>
+      
     </>
   );
 };

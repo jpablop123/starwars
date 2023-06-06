@@ -28,7 +28,7 @@ import "../../styles/home.css";
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
               <img
-                                                src={`https://starwars-visualguide.com/assets/img/vehicles/${item.uid}.jpg`}
+                                                src={`https://starwars-visualguide.com/assets/img/starships/${item.uid}.jpg`}
                                                 className="card-img-top"
                                                 alt="..."
                                             />
@@ -44,7 +44,7 @@ import "../../styles/home.css";
                   <li className="list-group-item">A third item</li>
                 </ul>
                 <div className="card-body">
-                  <Link to={`/starships/${item.uid}`} className="card-link">
+                  <Link to={`/vehicles/${item.uid}`} className="card-link">
                     Ver Detalle
                   </Link>
                   <br></br>
