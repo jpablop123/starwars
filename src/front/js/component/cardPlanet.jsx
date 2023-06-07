@@ -20,7 +20,7 @@ import "../../styles/home.css";
   return (
     <div className="container">
       <div className="d-flex flex-row flex-nowrap" style={{ overflowX: "scroll" }}>
-        {store.planets.map((item, index) => {
+      {store.planet && store.planet.length>0 && store.planet.map((item, index) => {
           return (
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
@@ -42,7 +42,7 @@ import "../../styles/home.css";
                   <li className="list-group-item"><h5>climate:</h5><h6>{item.climate}</h6></li>
                 </ul>
                 <div className="card-body">
-                  <Link to={`/planet/${item.uid}`} className="card-link">
+                  <Link to={`/planets/${index+1}`} className="card-link">
                     Ver Detalle
                   </Link>
                   <br></br>

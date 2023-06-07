@@ -1,7 +1,7 @@
 export const planetStore = {
-    planets: [], //la lista de planetas
-    planet: {} //planeta en específico
-}
+    planet: [], // the list of people
+    planets: {} // specific person
+  };
 
 export function planetActions(getStore, getActions, setStore) {
     const BASE_URL = process.env.BASE_URL;
@@ -9,12 +9,14 @@ export function planetActions(getStore, getActions, setStore) {
         getPlanets: async () => {
             //console.log(BASE_URL)
             let resultado = await fetch(`${BASE_URL}planets`)
+            console.log(resultado)
             if (resultado.ok) {
-                alert("Se trajo correctamente la lista de planetas")
+                alert("Se trajo correctamente la lista de planets")
                 let resultadoJSON = await resultado.json()
                 //console.log("resultadoJSON: ", resultadoJSON.results)
                 let store = getStore();
-                setStore({ ...store, planets: resultadoJSON.results })
+                console.log(resultadoJSON)
+                setStore({planet: resultadoJSON.results })
                 return resultadoJSON
             } else {
                 alert("hubo un error en la petición de planetas")
@@ -25,14 +27,14 @@ export function planetActions(getStore, getActions, setStore) {
         getSinglePlanet: async (numero) => {
             let resultado = await fetch(`${BASE_URL}planets/${numero}`)
             if (resultado.ok) {
-                alert("Se trajo correctamente el planeta solicitado")
+                alert("Se trajo correctamente el planet solicitado")
                 let resultadoJSON = await resultado.json()
-                console.log("resultadoJSON: ", resultadoJSON.result)
+                console.log("resultadoJSON: ", resultadoJSON)
                 let store = getStore();
-                setStore({ ...store, planet: resultadoJSON.result })
+                setStore({planet: resultadoJSON})
                 return resultadoJSON
             } else {
-                alert("hubo un error en la petición del planeta")
+                alert("hubo un error en la petición del planet")
                 return false
             }
         }

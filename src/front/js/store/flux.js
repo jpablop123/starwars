@@ -3,6 +3,7 @@ import { favoriteStore, favoriteActions } from "./favorites.js";
 import { peopleStore,peopleActions } from "./people.js";
 import { vehicleActions, vehicleStore } from "../vehicle.js";
 
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -53,6 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ...favoriteActions(getStore, getActions, setStore),
       ...peopleActions(getStore, getActions, setStore),
       ...vehicleActions(getStore, getActions, setStore),
+      
     },
   };
 };

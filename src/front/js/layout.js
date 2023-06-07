@@ -13,6 +13,7 @@ import { Footer } from "./component/footer";
 import { Planetsingle } from "./pages/planetSingle.js";
 import { DetailPeople } from "./component/detailPeople.jsx";
 import { DetailVehicle } from "./component/detailVehicle.jsx";
+import { DetailPlanet } from "./component/detailPlanet.jsx";
 
 
 //create your first component
@@ -27,11 +28,13 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar />
                     <Routes>
-                        <Route element={<Home />} path="/" />
+
+                    <Route element={<Home />} path="/" />
+                        <Route element={<Home />} path="/home" />
                         <Route element={<DetailPeople />} path="/people/:uid"/>
                         <Route element={<DetailVehicle />} path="/starships/:uid"/>
-                        <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<Planetsingle />} path="/planet/:uid" />
+                        <Route element={<DetailPlanet />} path="/planets/:uid" />
+                        
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -3,24 +3,27 @@ import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
 
 
-export const DetailPeople = () => {
+export const DetailPlanet = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  const [people, setPeople] = useState({});
+  const [planet, setplanet] = useState({});
 
   useEffect(() => {
     const cargaDatos = async () => {
 
-      let  response  = await actions.getSinglePeople(`${params.uid}`);
+      let  response  = await actions.getSinglePlanet(`${params.uid}`);
    
-      console.log(response)
       
-        setPeople(response);
+      
+        setplanet(response);
       
     };
+    
     cargaDatos();
   }, [params.uid]);
-console.log(store.people)
+console.log(store.planet)
+console.log("hola")
+
   return (
     <>
       <div className="container">
@@ -30,7 +33,7 @@ console.log(store.people)
             <div className="row g-0">
               <div className="col-md-4">
                 <img
-                  src={`https://starwars-visualguide.com/assets/img/characters/${params.uid}.jpg`}
+                  src={`https://starwars-visualguide.com/assets/img/planets/${params.uid}.jpg`}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -42,7 +45,7 @@ console.log(store.people)
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h1 className="card-title text-center">{people?.name}</h1>
+                  <h1 className="card-title text-center">{planet.name}</h1>
                   <p className="card-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -51,12 +54,12 @@ console.log(store.people)
                   </p>
                   <p className="card-text">
                     <small className="text-muted">
-                      Name: {people?.name} <br />
-                      Birth Year: {people?.birth_year} <br />
-                      Gender: {people?.gender} <br />
-                      Height: {people?.height} <br />
-                      Eyes Color: {people?.eye_color} <br />
-                      Skin: {people?.skin_color}
+                      Name: {planet?.name} <br />
+                      Climate: {planet?.climate} <br />
+                      Gravity: {planet?.gravity} <br />
+                      Terrain: {planet?.terrain} <br />
+                      Diameter: {planet?.diameter} <br />
+                      Orbital Period: {planet?.orbital_period}
                     </small>
                   </p>
                   <Link to="/home">
