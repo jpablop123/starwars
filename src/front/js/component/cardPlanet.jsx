@@ -25,7 +25,7 @@ import "../../styles/home.css";
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
               <img
-                                                src={`https://starwars-visualguide.com/assets/img/planets/${item.uid}.jpg`}
+                                                src={`https://starwars-visualguide.com/assets/img/planets/${index+2}.jpg`}
                                                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg' }}
                                                 className="card-img-top"
                                                 alt="..."
@@ -37,9 +37,9 @@ import "../../styles/home.css";
                   </p>
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">Some quick example text to build on the card title and make up the bulk of the card's content.</li>
-                  <li className="list-group-item">A second item</li>
-                  <li className="list-group-item">A third item</li>
+                  <li className="list-group-item"><h5>Population:</h5><h6>{item.population}</h6></li>
+                  <li className="list-group-item"><h5>Surface Water:</h5><h6>{item.surface_water}</h6></li>
+                  <li className="list-group-item"><h5>climate:</h5><h6>{item.climate}</h6></li>
                 </ul>
                 <div className="card-body">
                   <Link to={`/planet/${item.uid}`} className="card-link">

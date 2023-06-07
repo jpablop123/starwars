@@ -29,9 +29,9 @@ export function peopleActions(getStore, getActions, setStore) {
             if (resultado.ok) {
                 alert("Se trajo correctamente el people solicitado")
                 let resultadoJSON = await resultado.json()
-                console.log("resultadoJSON: ", resultadoJSON.result)
+                console.log("resultadoJSON: ", resultadoJSON)
                 let store = getStore();
-                setStore({ ...store, people: resultadoJSON.result })
+                setStore({people: resultadoJSON})
                 return resultadoJSON
             } else {
                 alert("hubo un error en la petición del people")

@@ -3,20 +3,21 @@ import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 import { vehicleActions } from "../vehicle.js";
 
+
 export const DetailVehicle = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
     const [vehicle, setVehicle] = useState({});
   
     useEffect(() => {
-      const cargaDatos = async () => {
-        const response = await actions.getSingleVehicle(params.uid);
-        if (response) {
-          setVehicle(response.result);
-        }
+        const cargaDatos = async () => {
+        let response = await actions.getSingleVehicle(`${params.uid}`);
+        
+          setVehicle(response)
+        
       };
       cargaDatos();
-    }, [actions, params.uid]);
+    }, [params.uid]);
   
     return (
       <>
@@ -25,8 +26,8 @@ export const DetailVehicle = () => {
             <div className="card mb-3" style={{ width: "75%" }}>
               <div className="row g-0">
                 <div className="col-md-4">
-                  <img
-                    src={`https://starwars-visualguide.com/assets/img/vehicle/${params.uid}.jpg`}
+                  
+                    <img src={`https://starwars-visualguide.com/assets/img/vehicles/${params.uid}.jpg`}
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";

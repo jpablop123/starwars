@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useParams, Link } from "react-router-dom";
 
+
 export const DetailPeople = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
@@ -9,14 +10,17 @@ export const DetailPeople = () => {
 
   useEffect(() => {
     const cargaDatos = async () => {
-      let { respuestaJson, response } = await actions.useSwapi(`/people/${params.uid}`);
-      if (response.ok) {
-        setPeople(respuestaJson);
-      }
+
+      let  response  = await actions.getSinglePeople(`${params.uid}`);
+   
+      console.log(response)
+      
+        setPeople(response);
+      
     };
     cargaDatos();
   }, [params.uid]);
-
+console.log(store.people)
   return (
     <>
       <div className="container">
@@ -38,7 +42,7 @@ export const DetailPeople = () => {
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h1 className="card-title text-center">{people.name}</h1>
+                  <h1 className="card-title text-center">{people?.name}</h1>
                   <p className="card-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -47,12 +51,12 @@ export const DetailPeople = () => {
                   </p>
                   <p className="card-text">
                     <small className="text-muted">
-                      Name: {people.name} <br />
-                      Birth Year: {people.birth_year} <br />
-                      Gender: {people.gender} <br />
-                      Height: {people.height} <br />
-                      Eyes Color: {people.eye_color} <br />
-                      Skin: {people.skin_color}
+                      Name: {people?.name} <br />
+                      Birth Year: {people?.birth_year} <br />
+                      Gender: {people?.gender} <br />
+                      Height: {people?.height} <br />
+                      Eyes Color: {people?.eye_color} <br />
+                      Skin: {people?.skin_color}
                     </small>
                   </p>
                   <Link to="/">
