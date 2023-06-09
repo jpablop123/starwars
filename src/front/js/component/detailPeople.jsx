@@ -13,7 +13,7 @@ export const DetailPeople = () => {
 
       let  response  = await actions.getSinglePeople(`${params.uid}`);
    
-      console.log(response)
+
       
         setPeople(response);
       

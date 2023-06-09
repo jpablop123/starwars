@@ -21,8 +21,7 @@ export const DetailPlanet = () => {
     
     cargaDatos();
   }, [params.uid]);
-console.log(store.planet)
-console.log("hola")
+
 
   return (
     <>

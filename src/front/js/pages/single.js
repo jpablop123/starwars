@@ -9,7 +9,7 @@ export const Single = props => {
 	const params = useParams();
 
 	useEffect(() => {
-		console.log(params.theid)
+		
 	}, [])
 	return (
 		<div className="jumbotron">

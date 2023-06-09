@@ -11,15 +11,15 @@ export function peopleActions(getStore, getActions, setStore) {
             let resultado = await fetch(`${BASE_URL}people`)
             console.log(resultado)
             if (resultado.ok) {
-                alert("Se trajo correctamente la lista de people")
+               
                 let resultadoJSON = await resultado.json()
                 //console.log("resultadoJSON: ", resultadoJSON.results)
                 let store = getStore();
-                console.log(resultadoJSON)
+               
                 setStore({  people: resultadoJSON.results })
                 return resultadoJSON
             } else {
-                alert("hubo un error en la petición de planetas")
+                
                 return false
             }
         },
@@ -27,14 +27,14 @@ export function peopleActions(getStore, getActions, setStore) {
         getSinglePeople: async (numero) => {
             let resultado = await fetch(`${BASE_URL}people/${numero}`)
             if (resultado.ok) {
-                alert("Se trajo correctamente el people solicitado")
+               
                 let resultadoJSON = await resultado.json()
                 console.log("resultadoJSON: ", resultadoJSON)
                 let store = getStore();
                 setStore({people: resultadoJSON})
                 return resultadoJSON
             } else {
-                alert("hubo un error en la petición del people")
+               
                 return false
             }
         }

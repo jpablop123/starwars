@@ -9,8 +9,7 @@ export const Planetsingle = props => {
 	const params = useParams();
 
 	useEffect(() => {
-		console.log("Se abre el componente Planetsingle")
-		console.log(params.uid)
+		
 		actions.getSinglePlanet(params.uid)
 
 		return () => {
