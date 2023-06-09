@@ -17,18 +17,19 @@ import "../../styles/home.css";
     
     actions.removeFavorite(favoriteIndex);
   };
-
+console.log(store.vehicle)
 
 
   return (
     <div className="container">
       <div className="d-flex flex-row flex-nowrap" style={{ overflowX: "scroll" }}>
       {store.vehicle && store.vehicle.length>0 && store.vehicle.map((item, index) => {
+        
           return (
             <div className="col mx-1 px-1" key={index}>
               <div className="card" style={{ width: "18rem" }}>
-              <img
-                                                 src={`https://starwars-visualguide.com/assets/img/vehicles/${index+3}.jpg`}
+              <img 
+                                                 src={`https://starwars-visualguide.com/assets/img/vehicles/${index+1}.jpg`}
                                                 className="card-img-top"
                                                 alt="..."
                                             />
@@ -44,7 +45,7 @@ import "../../styles/home.css";
                   <li className="list-group-item"><h5>Passengers:</h5><h6>{item.passengers}</h6></li>
                 </ul>
                 <div className="card-body">
-                  <Link to={`/starships/${index+2}`} className="card-link">
+                  <Link to={`/starships/${index+1}`} className="card-link">
                     Ver Detalle
                   </Link>
                   <br></br>

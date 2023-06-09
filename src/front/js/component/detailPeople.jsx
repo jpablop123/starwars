@@ -59,7 +59,7 @@ console.log(store.people)
                       Skin: {people?.skin_color}
                     </small>
                   </p>
-                  <Link to="/home">
+                  <Link to="/">
           <button type="button" className="btn btn-primary mt-3">
             Go Back
           </button>

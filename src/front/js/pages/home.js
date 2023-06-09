@@ -9,6 +9,12 @@ import { CardVehicle } from "../component/cardVehicle.jsx";
 
 
 export const Home = () => {
+  const {store,actions} = useContext(Context);
+  useEffect(()=>{
+    actions.getPlanets();
+    actions.getPeoples();
+    actions.getVehicles();
+  },[])
   return (
     <>
     <h1 className="text-center">List of Planets</h1>
